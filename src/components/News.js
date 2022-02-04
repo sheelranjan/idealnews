@@ -27,15 +27,19 @@ export default class News extends Component {
     }
   }
   async componentDidMount(){
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}${this.props.category}&apiKey=f6838838ba4f4d76ab104be2063a6e70&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+    this.props.setProgress(10);
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({loading: true})
     let data = await fetch(url);
+    this.props.setProgress(30);
     let parsedData = await data.json()
+    this.props.setProgress(50);
     this.setState({
       articles: parsedData.articles,
       totalResults: parsedData.totalResults,
       loading: false
     })
+    this.props.setProgress(100);
   }
 
   // handlePrevClick = async ()=>{
@@ -63,8 +67,8 @@ export default class News extends Component {
   // }
 
   fetchMoreData = async () => {
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
     this.setState({page: this.state.page + 1})
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}${this.props.category}&apiKey=f6838838ba4f4d76ab104be2063a6e70&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     let data = await fetch(url);
     let parsedData = await data.json()
     this.setState({
@@ -76,7 +80,7 @@ export default class News extends Component {
   render() {
     return (
       <div className="container my-3">
-        <div className="row"><h1>Top Headlines</h1></div>
+        <div className="row text-center" style={{marginTop: '65px', marginBottom: '10px'}}><h1><strong>Top Headlines</strong></h1></div>
         {this.state.loading && <Spinner/>}
         <InfiniteScroll
           dataLength={this.state.articles.length}
