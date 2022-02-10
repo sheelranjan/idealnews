@@ -9,7 +9,8 @@ export default class News extends Component {
   static defaultProps = {
     country: 'in',
     pageSize: 20,
-    category: "&category=general"
+    // category: "&category=general"
+    category: "general"
   }
 
   static propTypes = {
@@ -26,9 +27,25 @@ export default class News extends Component {
       page: 1
     }
   }
+  // async componentDidMount(){
+  //   this.props.setProgress(10);
+  //   let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+  //   this.setState({loading: true})
+  //   let data = await fetch(url);
+  //   this.props.setProgress(30);
+  //   let parsedData = await data.json()
+  //   this.props.setProgress(50);
+  //   this.setState({
+  //     articles: parsedData.articles,
+  //     totalResults: parsedData.totalResults,
+  //     loading: false
+  //   })
+  //   this.props.setProgress(100);
+  // }
+
   async componentDidMount(){
     this.props.setProgress(10);
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+    let url = `https://saurav.tech/NewsAPI/top-headlines/category/${this.props.category}/in.json`;
     this.setState({loading: true})
     let data = await fetch(url);
     this.props.setProgress(30);
@@ -66,8 +83,18 @@ export default class News extends Component {
   //   })
   // }
 
+  // fetchMoreData = async () => {
+  //   let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+  //   this.setState({page: this.state.page + 1})
+  //   let data = await fetch(url);
+  //   let parsedData = await data.json()
+  //   this.setState({
+  //     articles: this.state.articles.concat(parsedData.articles),
+  //     totalResults: parsedData.totalResults,
+  //   })
+  // }
   fetchMoreData = async () => {
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+    let url = `https://saurav.tech/NewsAPI/top-headlines/category/${this.props.category}/in.json`;
     this.setState({page: this.state.page + 1})
     let data = await fetch(url);
     let parsedData = await data.json()
@@ -93,7 +120,7 @@ export default class News extends Component {
               {this.state.articles.map((element)=>{
                 return(
                   <div className="col-md-4" key={element.url}>
-                    <NewsItem title={element.title?element.title.slice(0, 45):"Title Not Availabe"} description={element.description?element.description.slice(0, 85):"Description Not Available"} imgUrl={element.urlToImage?element.urlToImage:"https://icon-library.com/images/no-picture-available-icon/no-picture-available-icon-1.jpg"} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name}/>
+                    <NewsItem title={element.title?element.title.slice(0, 50):"Title Not Availabe"} description={element.description?element.description.slice(0, 100):"Description Not Available"} imgUrl={element.urlToImage?element.urlToImage:"https://icon-library.com/images/no-picture-available-icon/no-picture-available-icon-1.jpg"} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name}/>
                   </div>
                 )
               })}
