@@ -7,13 +7,25 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 
 const App = () => {
+
+  const [mode, setMode] = useState("light");
   const [progress, setProgress] = useState(0);
+
+  const toggleMode = ()=> {
+    if (mode === "light") {
+      setMode("dark")
+      document.body.style.backgroundColor = "rgb(42, 88, 97)"
+    } else {
+      setMode("light")
+      document.body.style.backgroundColor = "rgb(245, 245, 245)"
+    }
+  }
 
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <div>
         <LoadingBar height={3} color="#f11946" progress={progress} />
-        <Navbar />
+        <Navbar mode={mode} toggleMode={toggleMode}/>
         <Switch>
           <Route exact path="/">
             <News
@@ -22,6 +34,7 @@ const App = () => {
               pageSize={12}
               country="in"
               category="general"
+              mode={mode}
             />
           </Route>
           <Route exact path="/business">

@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  let darkMode = "light"
+  if (props.mode === "light") {
+    darkMode = "dark"
+  } else {
+    darkMode = "light"
+  }
   return (
     <div>
-      <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+      <nav style={{backgroundColor: props.mode==="light"?"rgb(255, 255, 255)":"rgb(0, 0, 0)", borderRadius: props.mode==="light"?"2px":"0px", boxShadow: props.mode==="light"?"0px 1px 10px #999":"0px 0px 0px"}} className={`navbar fixed-top navbar-expand-lg navbar-${props.mode}`}>
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             IdealNews
@@ -58,10 +64,10 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-            <li className="form-check form-switch my-auto">
+            <li className={`form-check form-switch my-auto text-${darkMode}`}>
               <label
                 className="form-check-label"
-                style={{ color: "rgb(255, 0, 93)" }}
+                // style={{ color: "rgb(255, 0, 93)" }}
                 htmlFor="flexSwitchCheckDefault"
               >
                 <strong>Dark Mode</strong>
@@ -69,6 +75,7 @@ const Navbar = () => {
               <input
                 className="form-check-input"
                 type="checkbox"
+                onClick={props.toggleMode}
                 id="flexSwitchCheckDefault"
               />
             </li>

@@ -4,7 +4,7 @@ const NewsItem = (props) => {
   let { title, description, imgUrl, newsUrl, author, date, source } = props;
   return (
     <div className="my-3">
-      <div className="card">
+      <div style={{backgroundColor: props.mode==="light" ? "rgb(255, 255, 255)" : "rgb(32, 150, 161)"}} className="card">
         <img
           src={
             imgUrl
@@ -23,7 +23,7 @@ const NewsItem = (props) => {
           </h5>
           <p className="card-text">{description}...</p>
           <p className="card-text">
-            <small className="text-muted">
+            <small style={{color: props.mode==="light" ? "grey" : "lightblue"}}>
               By {author ? author : "Unknown"}
               <br />
               {date ? new Date(date).toUTCString() : "Date Unknown"}
@@ -33,7 +33,7 @@ const NewsItem = (props) => {
             href={newsUrl}
             target="_blank"
             rel="noreferrer"
-            className="btn btn-sm btn-primary"
+            className={`btn btn-sm btn-${props.mode==="light"?"primary":"dark"}`}
           >
             Read More
           </a>

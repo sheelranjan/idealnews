@@ -47,7 +47,7 @@ const News = (props) => {
         className="row text-center"
         style={{ marginTop: "65px", marginBottom: "10px" }}
       >
-        <h1>
+        <h1 style={{color: props.mode==="light" ? "dimgrey" : "azure"}}>
           <strong>Top {capitalizeFirst(props.category)} Headlines</strong>
         </h1>
       </div>
@@ -64,6 +64,7 @@ const News = (props) => {
               return (
                 <div className="col-md-3 col-sm-6" key={element.url}>
                   <NewsItem
+                    mode={props.mode}
                     title={
                       element.title
                         ? element.title.slice(0, 50)
