@@ -44,6 +44,7 @@ const App = () => {
               pageSize={12}
               country="in"
               category="business"
+              mode={mode}
             />
           </Route>
           <Route exact path="/entertainment">
@@ -53,6 +54,7 @@ const App = () => {
               pageSize={12}
               country="in"
               category="entertainment"
+              mode={mode}
             />
           </Route>
           <Route exact path="/health">
@@ -62,6 +64,7 @@ const App = () => {
               pageSize={12}
               country="in"
               category="health"
+              mode={mode}
             />
           </Route>
           <Route exact path="/science">
@@ -71,6 +74,7 @@ const App = () => {
               pageSize={12}
               country="in"
               category="science"
+              mode={mode}
             />
           </Route>
           <Route exact path="/sports">
@@ -80,6 +84,7 @@ const App = () => {
               pageSize={12}
               country="in"
               category="sports"
+              mode={mode}
             />
           </Route>
           <Route exact path="/technology">
@@ -89,6 +94,7 @@ const App = () => {
               pageSize={12}
               country="in"
               category="technology"
+              mode={mode}
             />
           </Route>
         </Switch>

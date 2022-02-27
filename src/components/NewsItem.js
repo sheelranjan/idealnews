@@ -4,7 +4,7 @@ const NewsItem = (props) => {
   let { title, description, imgUrl, newsUrl, author, date, source } = props;
   return (
     <div className="my-3">
-      <div style={{backgroundColor: props.mode==="light" ? "rgb(255, 255, 255)" : "rgb(32, 150, 161)"}} className="card">
+      <div style={{backgroundColor: props.mode==="light"?"rgb(255, 255, 255)":"rgb(32, 150, 161)"}} className="card">
         <img
           src={
             imgUrl
