@@ -4,7 +4,7 @@ const NewsItem = (props) => {
   let { title, description, imgUrl, newsUrl, author, date, source } = props;
   return (
     <div className="my-3">
-      <div style={{backgroundColor: props.mode==="light"?"rgb(255, 255, 255)":"rgb(32, 150, 161)"}} className="card">
+      <div style={{backgroundColor: props.mode==="light"?"rgb(255, 255, 255)":"rgb(55,60,84)"}} className="card">
         <img
           src={
             imgUrl
@@ -15,13 +15,13 @@ const NewsItem = (props) => {
           alt="..."
         />
         <div className="card-body">
-          <h5 className="card-title">
+          <h5 style={{color: props.mode==="light"?"rgb(33,37,41)":"rgb(240,240,240)"}} className="card-title">
             {title}...
-            <span className="badge rounded-pill bg-danger position-absolute top-0 start-0 translate-middle-y">
+            <span style={{backgroundColor: props.mode==="light"?"rgb(220,53,69)":"rgb(163, 0, 55)"}} className="badge rounded-pill position-absolute top-0 start-0 translate-middle-y">
               {source}
             </span>
           </h5>
-          <p className="card-text">{description}...</p>
+          <p style={{color: props.mode==="light"?"rgb(33,37,41)":"rgb(230,230,230)"}} className="card-text">{description}...</p>
           <p className="card-text">
             <small style={{color: props.mode==="light" ? "grey" : "lightblue"}}>
               By {author ? author : "Unknown"}

@@ -10,7 +10,7 @@ const Navbar = (props) => {
   }
   return (
     <div>
-      <nav style={{backgroundColor: props.mode==="light"?"rgb(255, 255, 255)":"rgb(0, 0, 0)", borderRadius: props.mode==="light"?"2px":"0px", boxShadow: props.mode==="light"?"0px 1px 10px #999":"0px 0px 0px"}} className={`navbar fixed-top navbar-expand-lg navbar-${props.mode}`}>
+      <nav style={{backgroundColor: props.mode==="light"?"rgb(255, 255, 255)":"rgb(22,25,48)", boxShadow: props.mode==="light"?"0px 1px 10px #999":"0px 0px 0px"}} className={`navbar fixed-top navbar-expand-lg navbar-${props.mode}`}>
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             IdealNews
