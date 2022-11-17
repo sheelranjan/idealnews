@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/idealnews/static/css/main.abd64e84.css",
+    "main.js": "/idealnews/static/js/main.4a11c540.js",
+    "static/js/787.8a839fdf.chunk.js": "/idealnews/static/js/787.8a839fdf.chunk.js",
+    "static/media/loading.svg": "/idealnews/static/media/loading.bdb172688ef932dfd5cc3daad6b2a5a5.svg",
+    "index.html": "/idealnews/index.html",
+    "main.abd64e84.css.map": "/idealnews/static/css/main.abd64e84.css.map",
+    "main.4a11c540.js.map": "/idealnews/static/js/main.4a11c540.js.map",
+    "787.8a839fdf.chunk.js.map": "/idealnews/static/js/787.8a839fdf.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.abd64e84.css",
+    "static/js/main.4a11c540.js"
+  ]
+}
